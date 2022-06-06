@@ -7,12 +7,12 @@ importlib.reload(plg_export)
 
 
 bl_info = {
-    "name": "PLG format",
-    "author": "amicitia",
+    "name": "P4G PLG format",
+    "author": "amicitia + LTSophia",
     "version": (0, 0, 2),
     "blender": (2, 80, 0),
     "location": "File > Import-Export > PLG (.plg)",
-    "description": "Import-Export PLG mesh collections",
+    "description": "Import-Export p4G PLG mesh collections",
     "warning": "",
     "wiki_url": "",
     "category": "Import-Export",

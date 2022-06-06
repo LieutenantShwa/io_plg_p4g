@@ -59,7 +59,7 @@ class ImportPLG(Operator, ImportHelper):
     """Import PLG mesh collection"""
 
     bl_idname = "io_plg.import_plg"
-    bl_label = "Import PLG"
+    bl_label = "Import P4G PLG"
 
     filename_ext = ".plg"
 

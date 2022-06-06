@@ -1,7 +1,7 @@
 
 # PLG Import-Export Addon for Blender
 
-A Blender Import-Export addon for the PLG format mesh collections found in some Atlus games.
+A Blender Import-Export addon for the PLG format mesh collections found in Persona 4 Golden
 
 ![x](img/import.png)
 
@@ -27,7 +27,7 @@ With this script you can:
   - Select a mesh collection, then `File > Export > Export PLG (.plg)`
   - In the `Export PLG` options panel, adjust the export options:
     - **Mystery Bytes**: Likely the PLG format version or game version.
-    - **Auto Color**: Automatically sets the vertex colors for each mesh to `#ffffffff` (100% opaque white) for internal verts and `#ffffff00` (100% transparent white) for boundary verts.
+    - **Auto Color**: Automatically sets the vertex colors for each mesh to `#ffffffff` (100% opaque white) for internal verts and `#ffffff00` (100% transparent white) for boundary verts. 
 
 ## Creating a Custom PLG Mesh
 

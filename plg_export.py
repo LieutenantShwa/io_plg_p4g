@@ -61,7 +61,7 @@ class ExportPLG(Operator, ExportHelper):
     """Export PLG mesh collection"""
 
     bl_idname = "io_plg.export_plg"
-    bl_label = "Export PLG"
+    bl_label = "Export P4G PLG"
 
     filename_ext = ".plg"
 
@@ -79,14 +79,15 @@ class ExportPLG(Operator, ExportHelper):
             ('0x01000300', "P5 0x20"  , "P5, Header Size 0x20"),
             ('0x01000200', "P5 0x20*" , "P5, Header Size 0x20 (fclItem)"),
             ('0x02000000', "P3D/P5D/PQ2 0x38", "P3D/P5D/PQ2, Header Size 0x38"),
+            ('0x00000001', "P4G 0x20*" , "P4G, Header Size 0x20"),
         },
-        default = '0x01000400',
+        default = '0x00000001',
     )
 
     color: BoolProperty(
         name = "Auto Color",
         description = "Color inner verts with 100% opaque white, outer verts with 100% transparent white",
-        default = True
+        default = False
     )
 
     def execute(self, context):

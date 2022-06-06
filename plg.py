@@ -14,9 +14,9 @@ H38.__frmt__ = '<2I 2I 4I 2I I'
 H38.__size__ = struct.calcsize(H38.__frmt__)
 H20.__size__ = struct.calcsize(H20.__frmt__)
 
-O40 = namedtuple("O40", "vdo fdo    vc fc     n u01 xm ym xM yM name")
+O40 = namedtuple("O40", "vdo fdo    vc fc     n u01 name")
 O48 = namedtuple("O48", "vdo fdo eo vc fc u00 n u01 xm ym xM yM name")
-O40.__frmt__ = '<2I    2H    2H4f32s'
+O40.__frmt__ = '<2I    2H    2H32s'
 O48.__frmt__ = '<2I 1I 2H 1I 2H4f32s'
 O40.__size__ = struct.calcsize(O40.__frmt__)
 O48.__size__ = struct.calcsize(O48.__frmt__)
@@ -32,7 +32,8 @@ MYS = {
     0x01000400: 0x38,
     0x01000300: 0x20,
     0x01000200: 0x20,
-    0x02000000: 0x38
+    0x02000000: 0x38,
+    0x00000001: 0x20
 }
 
 HTYPE = { 0x38: H38, 0x20: H20 }
@@ -45,7 +46,7 @@ HDEFAULT = {
 
 ODEFAULT = {
     0x38: O48(0, 0, 0, 0, 0, 0, 0, 0, 0.0, 0.0, 0.0, 0.0, ""),
-    0x20: O40(0, 0,    0, 0,    0, 0, 0.0, 0.0, 0.0, 0.0, "")
+    0x20: O40(0, 0,    0, 0,    0, 0,                     "")
 }
 
 
@@ -78,7 +79,6 @@ def tmp2plgf(tmp, mys):
     for name, verts, faces in tmp:
         obj, objsize = ODEFAULT[s]._asdict(), ODEFAULT[s].__size__
         obj['n'] = len(faces[0]) if faces else 0
-        obj['xm'], obj['ym'], obj['xM'], obj['yM'] = get_min_max(verts)
         obj['vc'], obj['fc'] = len(verts), len(faces) * obj['n']
         obj['name'] = encode_name(name)
         objs.append([obj, verts, faces])
